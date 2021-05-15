@@ -131,22 +131,48 @@ All the algorithm needed  for prediction using the linear regression model have 
 Scikit learn is an open-source python library that provides algorithms that are used in machine learning. This library provide functionalities for solving machine learning jobs like 
 regression, classification, clustering, model selection, pre-processing - like spliting data sets into test and train subsets -amongst others \cite{scikit_learn}. The scikit-learn API are designed around this main design principles which are consistency - all objects (basic or composite) share a consistent interface composed of a limited set of methods -, inspection - parameters are exposed as public attributes -, composition, sensible defaults - provides understandable default parameters which gives baseline solution for tasks at hand -and nonproliferation of classes - datasets are represented as NumPy arrays or SciPy sparse matrices \cite{sklearn_api}.
 \subsubsection{Numpy}
-NumPy is an open-source Python library that that provides routines that allows for fast operations on multidimensional arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation \footnote{https://numpy.org/doc/stable/user/whatisnumpy.html}.
+NumPy is an open-source Python library that that provides routines that allows for fast operations on multidimensional arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation\footnote{https://numpy.org/doc/stable/user/whatisnumpy.html}.
 \subsubsection{Pandas}
-Pandas is an open-source data analysis and manipulation python library that allows high-performance easy exploration, cleaning and processing of tabular data structures in Python \footnote{https://pandas.pydata.org/docs/}.
+Pandas is an open-source data analysis and manipulation python library that allows high-performance easy exploration, cleaning and processing of tabular data structures in Python\footnote{https://pandas.pydata.org/docs/}.
 \subsubsection{Matplotlib}
-Matplotlib is a Python library used along with Numpy for creating static, animated and interactive visualization of data \footnote{https://matplotlib.org/}.
+Matplotlib is a Python library used along with Numpy for creating static, animated and interactive visualization of data\footnote{https://matplotlib.org/}.
 \subsubsection{Seaborn}
-Seaborn is a Python library which builds upon the functionalities of matplotlib and integrates closely with pandas data structures for making statistical graphics to datasets \footnote{https://seaborn.pydata.org/introduction.html}.
+Seaborn is a Python library which builds upon the functionalities of matplotlib and integrates closely with pandas data structures for making statistical graphics to datasets\footnote{https://seaborn.pydata.org/introduction.html}.
 \section{Practical Example}
-In this paper, the california housing datasets from \cite{KELLEYPACE1997291} included in the scikit sklearn datasets library is used to predict train and prediction the average prices of housing in california using linear regression.
+In this paper, the california housing datasets from \cite{KELLEYPACE1997291} included in the scikit sklearn datasets library is used to predict train and prediction the average prices of housing in california using linear regression. 
 \subsection{Preparing Data}
+The dataset has 20,640 instance number, 8 numeric predictive atrributes and 1 target attribute which is expected output of the prediction, which is the median house value for California districts. A block group is the smallest geographical unit for which the U.S. Census Bureau publishes sample data (a block group typically has a population of 600 to 3,000 people), the datasets were obtained in a 1990 census \cite{KELLEYPACE1997291}.
+The predictive attributes have the following information: 
+	\begin{itemize}
+		\item MedInc: represents the median income in a block.
+		\item HouseAge: represents the median house age in block.
+        		\item AveRooms: represents the average number of rooms.
+        		\item AveBedrms: represents the average number of bedrooms.
+        		\item Population: represents the population in the block.
+        		\item AveOccup: represents the average house occupancy.
+	        \item Latitude: represents the house block latitude.
+        		\item Longitude: represents the house block longitude.
+	\end{itemize}
+	This dataset can download from scikit learn online sklearn.datasets repository by using the following code "from sklearn.datasets import $fetch\_california\_housing 
+california = fetch\_california\_housing()$"
+
+
 The data used in this example is gotten from sckit learn. this returns the following datasets with each attribute meaning....get from this link \url{https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html}.
 
 
 
-\begin{itemize}
-\item the libraries were imported
+	\begin{itemize}
+		\item Figure \ref{fig:placeholder} shows the import statments for the functions and libraries that are used.the libraries were imported
+		\item Figure \ref{fig:overview_dataset_with_target} shows the overview of the data as a  pandas dataframe which include the target feature column.
+		\item Figure \ref{fig:pearson_correlation_of_the_dataset} shows a table of the pearson correlation of the attribes to each other using pandas library. The closer the value are to one, the more thery are related to each other. It can be seen from the figure that the median income in a block has the highest correlation to the target variable. Which is why we will be using it as the variable for training our model. This visualization can also be seen in the heatmap drawn with seaborn in figure \ref{fig:correlation_heatmap}.
+		\item Figure \ref{fig:reshape_dataset} shows the code snipet that was used to transform the X variable to a 2d array as expected by scikit learn regression function. X variable is a 2d array respresenting the median income per block and the y variable is the target representing the median house value in unit of 100,000.
+		\item Create an instance of the linear regression class which is used for training the model.
+		\item Figure \ref{fig:coefficients_intercepts} shows the coefficients and intercepts of the equation for predicting variables calculated by the sklearn fit() method.
+		\item Try out the prediction using the test dataset. Figure \ref{fig:predicted_vs_actual} shows the first ten predicted value and the actual value expected. There seems to be some offset in the predictions.
+		\item Figure \ref{fig:r_mse_value} shows the $R^2$ and MSE value of the prediction. The value explains the reason why there were some offsets in the prediction. The model can be said to have underfitted the training data because the feature used did not provide enough information to make a good prediction as we understand that the house prices are influenced by many factors unlike just one variable that was used.
+		\item Figure \ref{fig:predicted_vs_actual_graph} shows a plot of the regression line of first 30 predicted values to their actual target marked in red. It can be seen that some of the target value are quite far away to the regression line drawn.
+		
+\item Datasets were then split and randomized into 20 percent for training and testing the model.
 \item the dataset was created as a panda data frame to allow easy manipulation I guess. then the target column was added to the dataset columns which will be the y variable
 \item a description of the data was manage to get a quick statistics on the data being worked on.
 \item the input variable is the AveRooms ............ it total-room, which the totatl number of rooms in a block,
@@ -155,10 +181,70 @@ The data used in this example is gotten from sckit learn. this returns the follo
 \end{itemize}
 
 \subsection{Result and discussion}
-The coefficients are the most important output that we can obtain from our regression model because they allow us to re-create the weighted summation that can predict our outcomes.[regression textbook, page 70]
+From the result of the predictions, it can be seen that the model underfitted the training data and as a result was not able to make the right prediction of the target value. The MSE value was 0.45 which showed that there were significant errors in predicting the values.
 
 \section{Conclusion}
 finish by highlighting the strenth of linear regression as well as the shorcomings.
+
+\newpage
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/import_statements.png}
+	\caption{Import statements}
+	\label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/overview_dataset_with_target.png}
+	\caption{Dataset overview including the target column}
+	\label{fig:overview_dataset_with_target}
+\end{figure}
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/pearson_correlation_of_the_dataset.png}
+	\caption{Pearson correlation of the dataset attributes}
+	\label{fig:pearson_correlation_of_the_dataset}
+\end{figure}
+
+\newpage
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/correlation_heatmap.png}
+	\caption{Pearson correlation heatmap of the dataset attributes}
+	\label{fig:correlation_heatmap}
+\end{figure}
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/reshape_dataset.png}
+	\caption{Code snippet for reshaping and extracting the X and y variable for the regression analysis}
+	\label{fig:reshape_dataset}
+\end{figure}
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/coefficients_intercepts.png}
+	\caption{Coefficients and intercept of the equation as calculated by sklearn}
+	\label{fig:coefficients_intercepts}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/predicted_vs_actual.png}
+	\caption{Predicted value vs actual value}
+	\label{fig:predicted_vs_actual}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/r_mse_value.png}
+	\caption{$R^2$ and MSE value of the model}
+	\label{fig:r_mse_value}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\includegraphics [scale=0.5]{figures/predicted_vs_actual_graph.png}
+	\caption{Plot of the regression line to the actual target value}
+	\label{fig:predicted_vs_actual_graph}
+\end{figure}
+
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
