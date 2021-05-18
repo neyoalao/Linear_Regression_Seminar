@@ -1,0 +1,55 @@
+\begin{thebibliography}{1}
+
+\bibitem{oliver_wyman}
+Mro survey 2016.
+
+\bibitem{sklearn_api}
+Lars Buitinck, Gilles Louppe, Mathieu Blondel, Fabian Pedregosa, Andreas
+  Mueller, Olivier Grisel, Vlad Niculae, Peter Prettenhofer, Alexandre
+  Gramfort, Jaques Grobler, Robert Layton, Jake VanderPlas, Arnaud Joly, Brian
+  Holt, and Ga{\"{e}}l Varoquaux.
+\newblock {API} design for machine learning software: experiences from the
+  scikit-learn project.
+\newblock In {\em ECML PKDD Workshop: Languages for Data Mining and Machine
+  Learning}, pages 108--122, 2013.
+
+\bibitem{ibm_cloud_education_2020}
+IBM~Cloud Education.
+\newblock What is machine learning?, Jul 2020.
+
+\bibitem{KELLEYPACE1997291}
+R.~{Kelley Pace} and Ronald Barry.
+\newblock Sparse spatial autoregressions.
+\newblock {\em Statistics \& Probability Letters}, 33(3):291--297, 1997.
+
+\bibitem{article_lee}
+K.-Y Lee, K.-H Kim, J.-J Kang, S.-J Choi, Y.-S Im, Y.-D Lee, and Y.-S Lim.
+\newblock Comparison and analysis of linear regression \& artificial neural
+  network.
+\newblock {\em International Journal of Applied Engineering Research},
+  12:9820--9825, 01 2017.
+
+\bibitem{massaron2016regression}
+Luca Massaron and Alberto Boschetti.
+\newblock {\em Regression Analysis with Python}.
+\newblock Packt Publishing Ltd, 2016.
+
+\bibitem{scikit_learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{DAE79009}
+Astrid Schneider, Gerhard Hommel, and Maria Blettner.
+\newblock {Linear Regression Analysis}.
+\newblock {\em Dtsch Arztebl International}, 107(44):776--782, 2010.
+
+\bibitem{theobald2017machine}
+Oliver Theobald.
+\newblock {\em Machine learning for absolute beginners: a plain English
+  introduction}.
+\newblock Scatterplot press, 2017.
+
+\end{thebibliography}
