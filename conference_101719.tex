@@ -38,29 +38,16 @@ olaniyi-bayonle.alao@stud.hshl.de}
 \maketitle
 
 \begin{abstract}
-talk about the data example prediction that will/was done using sck-kit.  Then talk about what linear regression, why it is used......... 
-
-this paper talks about linear regression in the context of deep learning. Linear regrression is a statictical term that uses a dependent and independent variable to make predictions. in these paper, the use case of linear regression is used to predict data in machine learning. The data were gotten from kaggle.com. the data is a data of the titanic survivers and the model was trained using sci-kit or tensor flow.
-
-data cleasing was done using pandas a python library to prepare the data for model training.
-
-regression analysis as a whole is a stastical method used to understand the relation between dependent and independent variables.
-
-
-with the rise in the amount of data we have access to and increase in the performance of computers, Machine Learning a subset of Artificial inteligence has seen a significant growth. machine learning refers to  is the ability of applications to get better at doing things without necessarily a change in the code base them is something that has really been helpful. 
-
-even though machine learning isn't a new concept, it is fast gaining recognization and changing lives thanks to the increase in the processing power of computers over the years to be able to process big data at a level that has never been experienced.
-
-
+Machine learning refers to is the ability of applications to get better at doing things without necessarily a change in the code base them is something that has really been helpful especially in this era of big data.
+Even though machine learning is not a new concept, it is fast gaining recognization and changing lives thanks to the increase in the processing power of computers over the years to be able to process big data at a level that has never been experienced. This paper talks about linear regression algorithm in the context of machine learning. Linear regrression is a statictical term that uses a dependent and independent variable to make predictions. In these paper, the theorectical background of linear regression was explored. Predicting target values using the Scikit-Learn scientific library for machine learning  in python was made. The data used in this paper were gotten from the Scikit-Learn dataset repository library. The California housing dataset from this repository was used for training and prediction using linear regression. As a mention of how good a model as learnt, mean squared error and coefficient of determination were explained. As a conclusion, an evaulation of the trained model was discussed to understand how well it performed in predicting.
 \end{abstract}
 \begin{IEEEkeywords}
 machine learning, linear regression, deep learning, sci-kit
 \end{IEEEkeywords}
 Unless otherwise stated, the main reference for facts, mathematical models and terminologies used in this research paper is gotten from \cite{massaron2016regression}
-\section{Diagrams}
-Include diagram for machine learning automatically adapting to change?? get idea from fig 1-3 page 25 of [hands-on machine learning with scikit-learn]
+
 \section{Introduction}
-Due to an explosive increase in the amount of data generated from different internet connected devices -Cyber-Physical-Systems (CPS)-, there has been an increase in the need to make sense of this "big data" to ensure the proper and productive functioning of businesses. By 2026, the data generation from global air fleet is projected to reach 98 billion gigabytes \cite{oliver_wyman}. Thanks to the recent advancements in the information processing capabilities of computers, making sense of this huge chunk of data is now possible using data analysis techniques and Machine learning to clean and make prediction from this datasets. Machine learning is the ability of machine -software application- to learn and make predictions without being programmed to do so. They are able to learn and get better with an increase in the amount of data they are being fed through through their grounded mathemical foundations.
+Due to an explosive increase in the amount of data generated from different internet connected devices -Cyber-Physical-Systems (CPS)-, there has been an increase in the need to make sense of this "big data" to ensure the proper and productive functioning of businesses. By 2026, the data generation from global air fleet is projected to reach 98 billion gigabytes \cite{oliver_wyman}. Thanks to the recent advancements in the information processing capabilities of computers, making sense of this huge chunk of data is now possible using data analysis techniques and machine learning algorithms to clean and make prediction from this datasets. Machine learning is the ability of machine -software application- to learn and make predictions without being programmed to do so. They are able to learn and get better with an increase in the amount of data they are being fed through through their grounded mathemical foundations.
 
 \quad Linear regression is a statistical test used to find out the relationship between independent and dependent variables in a data set using mathematical formular. They can also be used in projecting new relationship between the dependent and independent variables that has not been discovered.
 Even though linear models - linear regression - are quite simple to develop and understand, as well as good at predicting linear relationships, their approximation of nonlinear relationships have been found to be mostly unsatisfactory \cite{article_lee}. This paper goes more into the mathematical details 
@@ -68,7 +55,15 @@ this paper gives a profound, yet understandable mathematical description of Line
 
 \section{Theoretical Background}
 \subsection{Machine Learning}
-According to \cite{ibm_cloud_education_2020}, "Machine learning is a branch of artificial intelligence (AI) focused on building applications that learn from data and improve their accuracy over time without being programmed to do so". Examples of applications built using machine learning trained models are email filters with the ability to distinguish between desired emails and spams, auto-suggestion/auto-correct in many typing applications, self-driving vehicles, amongst others. Machine learning techniques have the advantage of automatically adapting to change detected in trends from data. Likewise, they help reduce the complexity in writing application that are somethings difficulty or even impossible to implement using traditional algorithms. Methods used in training a Machine learning model can be grouped into three main categories.
+According to \cite{ibm_cloud_education_2020}, "Machine learning is a branch of artificial intelligence (AI) focused on building applications that learn from data and improve their accuracy over time without being programmed to do so". Examples of applications built using machine learning trained models are email filters with the ability to distinguish between desired emails and spams, auto-suggestion/auto-correct in many typing applications, self-driving vehicles, amongst others. Machine learning techniques have the advantage of automatically adapting to change detected in trends from data. Likewise, they help reduce the complexity in writing application that are somethings difficulty or even impossible to implement using traditional algorithms. The approach of solving an application complexity using machine learning is shown in figure \ref{fig:machine_approach}.Methods used in training a Machine learning model can be grouped into three main categories.
+
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics [scale=0.32]{figures/machine_approach.png}}
+	\caption{Machine Learning approach}
+	\label{fig:machine_approach}
+\end{figure}
+
 
 	\begin{itemize}
 		\item Supervised Learning
@@ -138,9 +133,17 @@ Pandas is an open-source data analysis and manipulation python library that allo
 Matplotlib is a Python library used along with Numpy for creating static, animated and interactive visualization of data\footnote{https://matplotlib.org/}.
 \subsubsection{Seaborn}
 Seaborn is a Python library which builds upon the functionalities of matplotlib and integrates closely with pandas data structures for making statistical graphics to datasets\footnote{https://seaborn.pydata.org/introduction.html}.
+
+ Figure \ref{fig:placeholder} shows the import statments for the functions and libraries mentioned above in python.
+ \begin{figure}[htbp]
+	\centerline{\includegraphics [scale=0.45]{figures/import_statements.png}}
+	\caption{Import statements}
+	\label{fig:placeholder}
+\end{figure}
 \section{Practical Example}
-In this paper, the california housing datasets from \cite{KELLEYPACE1997291} included in the scikit sklearn datasets library is used to predict train and prediction the average prices of housing in california using linear regression. 
-\subsection{Preparing Data}
+In this paper, the california housing datasets from \cite{KELLEYPACE1997291} included in the scikit sklearn datasets library is used to  train and predict the average prices of housing in california using linear regression. 
+\subsection{Inspecting Dataset}
+The dataset used in this paper is gotten from scikit-learn dataset repository using. 
 The dataset has 20,640 instance number, 8 numeric predictive atrributes and 1 target attribute which is expected output of the prediction, which is the median house value for California districts. A block group is the smallest geographical unit for which the U.S. Census Bureau publishes sample data (a block group typically has a population of 600 to 3,000 people), the datasets were obtained in a 1990 census \cite{KELLEYPACE1997291}.
 The predictive attributes have the following information: 
 	\begin{itemize}
@@ -153,97 +156,37 @@ The predictive attributes have the following information:
 	        \item Latitude: represents the house block latitude.
         		\item Longitude: represents the house block longitude.
 	\end{itemize}
-	This dataset can download from scikit learn online sklearn.datasets repository by using the following code "from sklearn.datasets import $fetch\_california\_housing 
-california = fetch\_california\_housing()$"
-
-
-The data used in this example is gotten from sckit learn. this returns the following datasets with each attribute meaning....get from this link \url{https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html}.
-
-
-
-	\begin{itemize}
-		\item Figure \ref{fig:placeholder} shows the import statments for the functions and libraries that are used.the libraries were imported
-		\item Figure \ref{fig:overview_dataset_with_target} shows the overview of the data as a  pandas dataframe which include the target feature column.
-		\item Figure \ref{fig:pearson_correlation_of_the_dataset} shows a table of the pearson correlation of the attribes to each other using pandas library. The closer the value are to one, the more thery are related to each other. It can be seen from the figure that the median income in a block has the highest correlation to the target variable. Which is why we will be using it as the variable for training our model. This visualization can also be seen in the heatmap drawn with seaborn in figure \ref{fig:correlation_heatmap}.
-		\item Figure \ref{fig:reshape_dataset} shows the code snipet that was used to transform the X variable to a 2d array as expected by scikit learn regression function. X variable is a 2d array respresenting the median income per block and the y variable is the target representing the median house value in unit of 100,000.
-		\item Create an instance of the linear regression class which is used for training the model.
-		\item Figure \ref{fig:coefficients_intercepts} shows the coefficients and intercepts of the equation for predicting variables calculated by the sklearn fit() method.
-		\item Try out the prediction using the test dataset. Figure \ref{fig:predicted_vs_actual} shows the first ten predicted value and the actual value expected. There seems to be some offset in the predictions.
-		\item Figure \ref{fig:r_mse_value} shows the $R^2$ and MSE value of the prediction. The value explains the reason why there were some offsets in the prediction. The model can be said to have underfitted the training data because the feature used did not provide enough information to make a good prediction as we understand that the house prices are influenced by many factors unlike just one variable that was used.
-		\item Figure \ref{fig:predicted_vs_actual_graph} shows a plot of the regression line of first 30 predicted values to their actual target marked in red. It can be seen that some of the target value are quite far away to the regression line drawn.
-		
-\item Datasets were then split and randomized into 20 percent for training and testing the model.
-\item the dataset was created as a panda data frame to allow easy manipulation I guess. then the target column was added to the dataset columns which will be the y variable
-\item a description of the data was manage to get a quick statistics on the data being worked on.
-\item the input variable is the AveRooms ............ it total-room, which the totatl number of rooms in a block,
-\item We'll randomize the data, just to be sure not to get any pathological ordering effects that might harm the performance of Stochastic Gradient Descent.[google colab]
-\item use the 
-\end{itemize}
-
-\subsection{Result and discussion}
-From the result of the predictions, it can be seen that the model underfitted the training data and as a result was not able to make the right prediction of the target value. The MSE value was 0.45 which showed that there were significant errors in predicting the values.
-
-\section{Conclusion}
-finish by highlighting the strenth of linear regression as well as the shorcomings.
-
-\newpage
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/import_statements.png}
-	\caption{Import statements}
-	\label{fig:placeholder}
-\end{figure}
+A summary of these attributes and the corresponding target values as pandas dataframe is depicted in figure \ref{fig:overview_dataset_with_target}. The target attribute represents the median house value in unit of 100,000.
 
 \begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/overview_dataset_with_target.png}
+	\centerline{\includegraphics [scale=0.32]{figures/overview_dataset_with_target.png}}
 	\caption{Dataset overview including the target column}
 	\label{fig:overview_dataset_with_target}
 \end{figure}
 
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/pearson_correlation_of_the_dataset.png}
-	\caption{Pearson correlation of the dataset attributes}
-	\label{fig:pearson_correlation_of_the_dataset}
-\end{figure}
+The correlation between the attributes is shown in figure \ref{fig:correlation_heatmap}. Figure shows the pearson correlation between the attributes as a heatmap. The darker the blue colour and the closer the value is to 1, the higher the correlation of the attribure to each other. It can be seen from figure \ref{fig:correlation_heatmap} that the median income income in a block has the highest correlation to the target value followed by house age and average rooms. The other values show little or no correlation to the target value because of their negative values.
 
-\newpage
 \begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/correlation_heatmap.png}
+	\centerline{\includegraphics [scale=0.5]{figures/heatmap_correlation.png}}
 	\caption{Pearson correlation heatmap of the dataset attributes}
 	\label{fig:correlation_heatmap}
 \end{figure}
 
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/reshape_dataset.png}
-	\caption{Code snippet for reshaping and extracting the X and y variable for the regression analysis}
-	\label{fig:reshape_dataset}
-\end{figure}
+\subsection{Split Dataset and Train Model}
+The dataset is split into training and testing data using the $train\_test\_split$ function provided by the $sklearn.model\_selection$ class. The dataset was split into 20\% - 4,218 - for testing purposes and 80\% -16, 512 - for training purposes. Split the dataset gives the opportunity of setting aside some dataset for testing purposes to efficiently evaluate the accuracy of the trained model. If the dataset were not split, there is probability of the model predicting the target value through memorising and we want to avoid this. 
 
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/coefficients_intercepts.png}
-	\caption{Coefficients and intercept of the equation as calculated by sklearn}
-	\label{fig:coefficients_intercepts}
-\end{figure}
+An instance of the linear regression model class was instanced, and the training datasets were fed into the $fit$ function which is an implementation of the linear regression formula. The value of the coefficients after training the model is [ 4.48674910e-01  9.72425752e-03 -1.23323343e-01  7.83144907e-01
+ -2.02962058e-06 -3.52631849e-03 -4.19792487e-01 -4.33708065e-01]. The value of the intercept was found to be -37.023277706063894. Ideally, these are the values that are needed if manual calculation of the target value $y$ is to be made. 
 
+\subsection{Result and Discussion}
+With the regression model successfully trained, the testing datasets can now be fed to the model to predict the target values. The coefficient of determination $R^2$ of training datasets for the model was found to be 0.6125511913966952.
+When predictions were made using the testing dataset, there were some offsets in the predicted values to the target value as shown in figure thatttttt which shows a graph of the first 20 values. The Mean squared error of the predicted value to the target value was found to be 0.56 and coefficient of determination to be 0.58. These values explains the reason why there were some offsets in the predictions.
 
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/predicted_vs_actual.png}
-	\caption{Predicted value vs actual value}
-	\label{fig:predicted_vs_actual}
-\end{figure}
+With the result of the predictions from the model, it can be said that the model has underfitted the training data because the features used did not have an accurate linear corellation. This can be seen in figure \ref{fig:correlation_heatmap} which showed some negative values. We can also understand that a lot of not so known factors influence house prices which were not included in the datasets.
 
 
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/r_mse_value.png}
-	\caption{$R^2$ and MSE value of the model}
-	\label{fig:r_mse_value}
-\end{figure}
-
-
-\begin{figure}[htbp]
-	\includegraphics [scale=0.5]{figures/predicted_vs_actual_graph.png}
-	\caption{Plot of the regression line to the actual target value}
-	\label{fig:predicted_vs_actual_graph}
-\end{figure}
+\section{Conclusion}
+As can be highlighted from the linear regression equation, it is a fairly straightforward regression model to get started with machine learning. However, there are quite poor at predicting with datasets that do not have strong linear correlation as depicted in the trained model in this paper. As a suggestion, different regression algorithms should be used to train datasets to be able to find the best fit for the desired prediction job.
 
 \bibliographystyle{plain}
 \bibliography{references}
