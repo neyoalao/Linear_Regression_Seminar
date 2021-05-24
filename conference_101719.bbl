@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{oliver_wyman}
 Mro survey 2016.
@@ -16,6 +16,12 @@ Lars Buitinck, Gilles Louppe, Mathieu Blondel, Fabian Pedregosa, Andreas
 \bibitem{ibm_cloud_education_2020}
 IBM~Cloud Education.
 \newblock What is machine learning?, Jul 2020.
+
+\bibitem{geron2019hands}
+Aur{\'e}lien G{\'e}ron.
+\newblock {\em Hands-on machine learning with Scikit-Learn, Keras, and
+  TensorFlow: Concepts, tools, and techniques to build intelligent systems}.
+\newblock O'Reilly Media, 2019.
 
 \bibitem{KELLEYPACE1997291}
 R.~{Kelley Pace} and Ronald Barry.
