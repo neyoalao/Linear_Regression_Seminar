@@ -44,20 +44,24 @@ Even though machine learning is not a new concept, it is fast gaining recognizat
 \begin{IEEEkeywords}
 machine learning, linear regression, deep learning, sci-kit
 \end{IEEEkeywords}
-Unless otherwise stated, the main reference for facts, mathematical models and terminologies used in this research paper is gotten from \cite{massaron2016regression}
+
 
 \section{Introduction}
-Due to an explosive increase in the amount of data generated from different internet connected devices -Cyber-Physical-Systems (CPS)-, there has been an increase in the need to make sense of this "big data" to ensure the proper and productive functioning of businesses. By 2026, the data generation from global air fleet is projected to reach 98 billion gigabytes \cite{oliver_wyman}. Thanks to the recent advancements in the information processing capabilities of computers, making sense of this huge chunk of data is now possible using data analysis techniques and machine learning algorithms to clean and make prediction from this datasets. Machine learning is the ability of machine -software application- to learn and make predictions without being programmed to do so. They are able to learn and get better with an increase in the amount of data they are being fed through through their grounded mathemical foundations.
+Due to an explosive increase in the amount of data generated from different internet-connected devices -Cyber-Physical-Systems (CPS)-, there has been an increase in the need to make sense of this "big data" to ensure the proper and productive functioning of businesses. By 2026, the data generated from the global air fleet is projected to reach 98 billion gigabytes \cite{oliver_wyman}. Thanks to the recent advancements in the information processing capabilities of computers, making sense of this enormous chunk of data is now possible using data analysis techniques and machine learning algorithms to clean and make a prediction from these datasets. Machine learning is a machine's - software application - ability to learn and make predictions without being programmed to do so. They are able to learn and get better with an increase in the amount of data they are being fed through their grounded mathematical foundations.
 
-\quad Linear regression is a statistical test used to find out the relationship between independent and dependent variables in a data set using mathematical formular. They can also be used in projecting new relationship between the dependent and independent variables that has not been discovered.
-Even though linear models - linear regression - are quite simple to develop and understand, as well as good at predicting linear relationships, their approximation of nonlinear relationships have been found to be mostly unsatisfactory \cite{article_lee}. This paper goes more into the mathematical details 
-this paper gives a profound, yet understandable mathematical description of Linear regression, relevant parts of the framework -Sci-Kit- used to perform predictions on the example dataset in the context of Machine learning using the Python programming language.
+\quad Linear regression is a statistical test used to ascertain the relationship between independent and dependent variables in a dataset using a mathematical formula. They can also be used in projecting a new relationship between the dependent and independent variables that have not been discovered.
+Even though linear models - linear regression - are pretty simple to develop and understand, as well as good at predicting linear relationships, their approximation of nonlinear relationships is mostly unsatisfactory \cite{article_lee}. 
 
+\quad This paper gives a profound yet understandable mathematical description of Linear regression; relevant parts of the scientific machine learning framework -SciKit Learn- used to perform linear regression predictions on the example dataset in the context of Machine learning using Python programming language. 
+
+\quad The theoretical background section of this paper gives in-depth information about the theories that are fundamental in understanding the machine learning field and linear regression. The algorithm implementation section of the paper discusses the libraries and dataset used in implementing the linear regression machine learning model trained in this paper. A practical example of preparing the dataset, splitting dataset, training the machine learning model, as well as testing out the trained model, its accuracy and interpretation of the predictions were presented in the practical and result and discussion section of the paper.
+
+Unless otherwise stated, the main reference for facts, mathematical models and terminologies used in this research paper is gotten from \cite{massaron2016regression}
 \section{Theoretical Background}
 \subsection{Machine Learning}
 According to \cite{ibm_cloud_education_2020}, "Machine learning is a branch of artificial intelligence (AI) focused on building applications that learn from data and improve their accuracy over time without being programmed to do so". Examples of applications built using machine learning trained models are email filters with the ability to distinguish between desired emails and spams, auto-suggestion/auto-correct in many typing applications, self-driving vehicles, amongst others. Machine learning techniques have the advantage of automatically adapting to change detected in trends from data. Likewise, they help reduce the complexity in writing application that are somethings difficulty or even impossible to implement using traditional algorithms. The approach of solving an application complexity using machine learning is shown in figure \ref{fig:machine_approach}.Methods used in training a Machine learning model can be grouped into three main categories.
 
-
+\newpage
 \begin{figure}[htbp]
 	\centerline{\includegraphics [scale=0.32]{figures/machine_approach.png}}
 	\caption{Machine Learning approach \cite{geron2019hands}}
@@ -172,6 +176,19 @@ The correlation between the attributes is shown in figure \ref{fig:correlation_h
 	\label{fig:correlation_heatmap}
 \end{figure}
 
+\begin{figure}[htbp]
+	\centerline{\includegraphics [scale=0.5]{figures/heatmap_correlation.png}}
+	\caption{Pearson correlation heatmap of the dataset attributes}
+	\label{fig:correlation_heatmap}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics [scale=0.5]{figures/heatmap_correlation.png}}
+	\caption{Pearson correlation heatmap of the dataset attributes}
+	\label{fig:correlation_heatmap}
+\end{figure}
+
+
 \subsection{Split Dataset and Train Model}
 The dataset is split into training and testing data using the $train\_test\_split$ function provided by the $sklearn.model\_selection$ class. The dataset was split into 20\% - 4,218 - for testing purposes and 80\% -16, 512 - for training purposes. Split the dataset gives the opportunity of setting aside some dataset for testing purposes to efficiently evaluate the accuracy of the trained model. If the dataset were not split, there is probability of the model predicting the target value through memorising and we want to avoid this. 
 
@@ -180,13 +197,24 @@ An instance of the linear regression model class was instanced, and the training
 
 \subsection{Result and Discussion}
 With the regression model successfully trained, the testing datasets can now be fed to the model to predict the target values. The coefficient of determination $R^2$ of training datasets for the model was found to be 0.6125511913966952.
-When predictions were made using the testing dataset, there were some offsets in the predicted values to the target value as shown in figure thatttttt which shows a graph of the first 20 values. The Mean squared error of the predicted value to the target value was found to be 0.56 and coefficient of determination to be 0.58. These values explains the reason why there were some offsets in the predictions.
+When predictions were made using the testing dataset, there were some offsets in the predicted values to the target value as shown in figure \ref{fig:actual_vs_predicted}  which shows a graph of the first 20 values. The Mean squared error of the predicted value to the target value was found to be 0.56 and coefficient of determination to be 0.58. These values explains the reason why there were some offsets in the predictions.
+
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics [scale=0.5]{figures/actual_vs_predicted.png}}
+	\caption{Graph of first 20 actual values vs predicted values by the trained model}
+	\label{fig:actual_vs_predicted}
+\end{figure}
 
 With the result of the predictions from the model, it can be said that the model has underfitted the training data because the features used did not have an accurate linear corellation. This can be seen in figure \ref{fig:correlation_heatmap} which showed some negative values. We can also understand that a lot of not so known factors influence house prices which were not included in the datasets.
 
 
 \section{Conclusion}
-As can be highlighted from the linear regression equation, it is a fairly straightforward regression model to get started with machine learning. However, there are quite poor at predicting with datasets that do not have strong linear correlation as depicted in the trained model in this paper. As a suggestion, different regression algorithms should be used to train datasets to be able to find the best fit for the desired prediction job.
+The paper's primary aim is to understand linear regression in the context of machine learning and how to train a regression machine learning model to predict the average price of a house for a district block in California.
+
+Different sections in the paper gave essential information on machine learning and linear regression to achieve this aim. A practical example was done using the different feature points that made up the California house price dataset utilising the Scikit learn python library, which implements the necessary mathematical formulas needed to make the statistical prediction job. The coefficient of determination of the training dataset was found to be $R^2$ = 0.6125511913966952. Predictions made  using the testing dataset gave $R^2$ = 0.58 and mean squared error MSE = 0.56. These values showed that the model has around 57\% accuracy of correctly predicting the dependent variable.
+
+In conclusion, as can be highlighted from the linear regression equation, it is a reasonably straightforward regression model to get started within machine learning. However, it is pretty poor at predicting datasets that do not have solid linear correlation as depicted in the trained model in this paper. As a suggestion, different regression algorithms should be tried out in training linearly related datasets to find the best fit for the desired prediction job.
 
 \bibliographystyle{plain}
 \bibliography{references}
