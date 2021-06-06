@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{url}
+\renewcommand*\descriptionlabel[1]{\hspace\leftmargin$#1$}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -56,7 +57,7 @@ Even though linear models - linear regression - are pretty simple to develop and
 
 \quad The theoretical background section of this paper gives in-depth information about the theories that are fundamental in understanding the machine learning field and linear regression. The algorithm implementation section of the paper discusses the libraries and dataset used in implementing the linear regression machine learning model trained in this paper. A practical example of preparing the dataset, splitting dataset, training the machine learning model, as well as testing out the trained model, its accuracy and interpretation of the predictions were presented in the practical and result and discussion section of the paper.
 
-Unless otherwise stated, the main reference for facts, mathematical models and terminologies used in this research paper is gotten from \cite{massaron2016regression}
+Unless otherwise stated, the main reference for facts, mathematical models and terminologies used in this research paper is gotten from \cite{massaron2016regression}.
 \section{Theoretical Background}
 \subsection{Machine Learning}
 According to \cite{ibm_cloud_education_2020}, "Machine learning is a branch of artificial intelligence (AI) focused on building applications that learn from data and improve their accuracy over time without being programmed to do so". Examples of applications built using machine learning trained models are email filters with the ability to distinguish between desired emails and spams, auto-suggestion/auto-correct in many typing applications, self-driving vehicles, amongst others. Machine learning techniques have the advantage of automatically adapting to change detected in trends from data. Likewise, they help reduce the complexity in writing application that are somethings difficulty or even impossible to implement using traditional algorithms. The approach of solving an application complexity using machine learning is shown in figure \ref{fig:machine_approach}.Methods used in training a Machine learning model can be grouped into three main categories.
@@ -84,7 +85,7 @@ The other methods used in training a machine learning model are reinforcement le
 
 \subsection{Linear Regression Model}
 Regression 
-is a predictive analysis with a long but glorious history from its successful applications to problems in the statistics and economics domain. Regression is a kind of supervised learning technique for determining the best fit line to describe patterns in data: linear regression uses a straight line to describe these patterns.\cite{theobald2017machine}. The best fit line is the line that reduces the summed squared difference between the value of the line of a certain value \textbf{\textit{x}} and its corresponding \textbf{\textit{y}} values \cite{from main reference}. The mathematical expression for linear regression is:
+is a predictive analysis with a long but glorious history from its successful applications to problems in the statistics and economics domain. Regression is a kind of supervised learning technique for determining the best fit line to describe patterns in data: linear regression uses a straight line to describe these patterns.\cite{theobald2017machine}. The best fit line is the line that reduces the summed squared difference between the value of the line of a certain value \textbf{\textit{x}} and its corresponding \textbf{\textit{y}} values \cite{massaron2016regression}. The mathematical expression for linear regression is:
 	\begin{equation}
 		y = \beta\label{beta}X + \beta\textsubscript{0}
 	\end{equation}
@@ -101,6 +102,24 @@ is a predictive analysis with a long but glorious history from its successful ap
 	
 Linear regression analysis can be sub-divided into simple and multiple linear regression depending on the number of their independent variables. If the independent variable is one, the regression is said to be a simple linear regression, but if the independent variable is more than one, it is a multiple linear regression. In this paper, we will make analysis using the simple linear regression model.
 
+\subsection{Pearson's Correlation Coefficient}
+According to \cite{ref1_pearson}, "Pearson's correlation coefficient (r) is a measure of the linear association of two variables". Equation \eqref{betas} shows the formula for calculating Pearson's correlation coefficient 
+	\begin{equation}
+    		%\frac{\sum{(x-x)(y-y)}{6}
+		r = \frac{\sum{}(x-\overline{x})(y-\overline{y})}{\sqrt{\sum{}(x-\overline{x})^2\sum{}(y-\overline{y})^2}}\label{betas}
+		%\sum{}\frac{(x-x)}{5}
+	\end{equation}	
+	Where:
+	\begin{description}
+		\item x = values of the x variable
+		\item y = values of the y variable
+		\item $\overline{x}$ = mean values of all the x variables
+		\item $\overline{y}$ = mean values of all the y variables
+		\item r = pearson's correlation coefficient
+	\end{description}
+	 
+Correlation analysis usually starts with a graphical representation of the relation of data pairs using a scatter diagram. The correlation coefficient varies from a value of –1 to +1.  A value of 1 indicates that the linear model accurately describes the relationship between the dependent and independent variables. The lower the value gets towards the negative value indicates that the dependent variable decreases with an increase in the value of the independent variable, meaning that there is a negative linear correlation between the variables.
+The correlation coefficient value of 0 indicates no correlation between the dependent and independent variables.
 \subsection{Model Evaluation}
 The prediction made by the model using equation \eqref{beta} can be evaluated using the statistical methods below to find out how close the predicted value is to the the actual value.
 \subsubsection{R\textsuperscript{2}}
@@ -168,25 +187,20 @@ A summary of these attributes and the corresponding target values as pandas data
 	\label{fig:overview_dataset_with_target}
 \end{figure}
 
-The correlation between the attributes is shown in figure \ref{fig:correlation_heatmap}. Figure shows the pearson correlation between the attributes as a heatmap. The darker the blue colour and the closer the value is to 1, the higher the correlation of the attribure to each other. It can be seen from figure \ref{fig:correlation_heatmap} that the median income income in a block has the highest correlation to the target value followed by house age and average rooms. The other values show little or no correlation to the target value because of their negative values.
+The correlation between the attributes is shown in figure \ref{fig:heatmap_correlation} and \ref{fig:Pearson_corr}. Figure \ref{fig:heatmap_correlation} shows the Pearson correlation between the attributes as a heatmap and figure \ref{fig:Pearson_corr} as a numerical table. The darker the blue colour and the closer the value is to 1, the higher the correlation of the attribute to each other. It can be seen from figure \ref{fig:heatmap_correlation} that the median income income in a block has the highest correlation to the target value followed by house age and average rooms. The other values show little or no correlation to the target value because of their negative values.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics [scale=0.5]{figures/heatmap_correlation.png}}
 	\caption{Pearson correlation heatmap of the dataset attributes}
-	\label{fig:correlation_heatmap}
+	\label{fig:heatmap_correlation}
 \end{figure}
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics [scale=0.5]{figures/heatmap_correlation.png}}
-	\caption{Pearson correlation heatmap of the dataset attributes}
-	\label{fig:correlation_heatmap}
+	\centerline{\includegraphics [width=90mm,scale=0.5,height=5cm]{figures/pearson_correlation_of_the_dataset.png}}
+	\caption{Table of the Pearson correlation of dataset attributes}
+	\label{fig:Pearson_corr}
 \end{figure}
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics [scale=0.5]{figures/heatmap_correlation.png}}
-	\caption{Pearson correlation heatmap of the dataset attributes}
-	\label{fig:correlation_heatmap}
-\end{figure}
 
 
 \subsection{Split Dataset and Train Model}
@@ -206,7 +220,7 @@ When predictions were made using the testing dataset, there were some offsets in
 	\label{fig:actual_vs_predicted}
 \end{figure}
 
-With the result of the predictions from the model, it can be said that the model has underfitted the training data because the features used did not have an accurate linear corellation. This can be seen in figure \ref{fig:correlation_heatmap} which showed some negative values. We can also understand that a lot of not so known factors influence house prices which were not included in the datasets.
+With the result of the predictions from the model, it can be said that the model has underfitted the training data because the features used did not have an accurate linear corellation. This can be seen in figure \ref{fig:Pearson_corr} which showed some negative values. We can also understand that a lot of not so known factors influence house prices which were not included in the datasets.
 
 
 \section{Conclusion}
